@@ -260,7 +260,8 @@ class KineticsDatasetManager(object):
 			start_time = str(candidate).strip().split(',')[2]
 
 			# create the directory according to the label name
-			dir_name = os.path.join(self.destination_path,str(data_lable)) # make it an absolute path
+			# dir_name = os.path.join(self.destination_path,str(data_lable)) # make it an absolute path
+			dir_name = self.destination_path # make it an absolute path
 
 			# if the directory does not already exist
 			# then create a new one
@@ -268,7 +269,8 @@ class KineticsDatasetManager(object):
 				os.makedirs(dir_name)
 
 			# sample video name
-			vid_name = "vid_"+youtube_id+".avi"
+			# vid_name = "vid_"+youtube_id+".avi"
+			vid_name = youtube_id+".avi"
 			vid_path = os.path.join(dir_name,vid_name)
 
 			# if the video does not exist, then download it
