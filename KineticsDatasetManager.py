@@ -62,7 +62,10 @@ References:
 # import needed libraries
 import os, sys
 from natsort import natsorted
-from tqdm import tqdm as tqdm
+try:
+	from tqdm.notebook import tqdm as tqdm
+except ImportError:
+	from tqdm import tqdm as tqdm
 import shutil
 from collections import Counter
 
@@ -279,9 +282,8 @@ class KineticsDatasetManager(object):
 				# REF: https://stackoverflow.com/q/22766111/3901871
 				# REF: zsnhttps://ffmpeg.org/ffmpeg-utils.html#toc-Examples
 				# os.system("ffmpeg "+self.show_log_cmd+" -ss "+start_time+" -filter:v scale=256:-1 -i $(yt-dlp -f 18 --get-url "+youtube_link+") -t 10 -c:v copy -c:a copy '"+vid_path+"'")
-				os.system("ffmpeg -ss "+start_time+" -i $(yt-dlp -f 18 --get-url "+youtube_link+") -t 10 -c:v copy -c:a copy '"+vid_path+"'")
+				os.system("ffmpeg "+self.show_log_cmd+" -ss "+start_time+" -i $(yt-dlp -f 18 --get-url "+youtube_link+") -t 10 -c:v copy -c:a copy '"+vid_path+"'")
 				video_counter +=1
 				
 			else:
 				print("Skipped: ",vid_path)		
-
