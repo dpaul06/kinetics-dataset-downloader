@@ -21,8 +21,7 @@ pip3 install tqdm
 
 - [X] youtube-dl
 ```
-sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
-sudo chmod a+rx /usr/local/bin/youtube-dl
+python3 -m pip install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/master.tar.gz
 ```
 
 - [X] ffmpeg
@@ -52,3 +51,5 @@ From the above exampple, the final destination folder may look like
    |-- test
 ```
  
+
+## code taken from [this repo](https://github.com/rocksyne/kinetics-dataset-downloader)
